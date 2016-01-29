@@ -1,10 +1,13 @@
 var MysticQuest = MysticQuest || {};
 
 MysticQuest.GameState = {
+    init: function () {
+        this.game.physics.arcade.gravity.y = 0;
+    },
     create: function() {
-        this.player = this.game.add.sprite(this.game.world.centerX - 300, this.game.world.centerY);
+        this.player = this.game.add.sprite(this.game.world.centerX + 82, this.game.world.centerY + 600, 'player');
+        this.player.scale.setTo(0.3);
         this.game.physics.enable(this.player);
-        this.game.camera.follow(this.player);
 
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
@@ -19,15 +22,18 @@ MysticQuest.GameState = {
         if(this.cursors.up.isDown) {
           this.player.body.velocity.y -= 50;
         }
-        else if(this.cursors.down.isDown) {
+        if(this.cursors.down.isDown) {
           this.player.body.velocity.y += 50;
         }
         if(this.cursors.left.isDown) {
           this.player.body.velocity.x -= 50;
         }
-        else if(this.cursors.right.isDown) {
+        if(this.cursors.right.isDown) {
           this.player.body.velocity.x += 50;
         }
+
+        //collisions
+        this.game.physics.arcade.collide(this.player, this.blockingLayer);
     },
 
     renderLevel: function() {
@@ -37,11 +43,12 @@ MysticQuest.GameState = {
 
         this.backgroundLayer = this.map.createLayer('tileLayer');
         this.blockingLayer = this.map.createLayer('blockingLayer');
+        this.game.world.sendToBack(this.backgroundLayer);
 
         this.map.setCollisionBetween(1, 2000, true, 'blockingLayer');
 
         this.backgroundLayer.resizeWorld();
 
-        this.player.bringToTop();
+        this.game.camera.follow(this.player);
     }
 };
