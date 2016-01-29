@@ -5,9 +5,19 @@ MysticQuest.GameState = {
         this.game.physics.arcade.gravity.y = 0;
     },
     create: function() {
-        this.player = this.game.add.sprite(this.game.world.centerX + 82, this.game.world.centerY + 600, 'player');
+        //player
+        this.player = this.game.add.sprite(this.game.world.centerX + 82, this.game.world.centerY + 450, 'player');
         this.player.scale.setTo(0.3);
         this.game.physics.enable(this.player);
+
+        //groups
+        this.enemies = this.add.group();
+
+        //temp enemy
+        this.enemy = this.game.add.sprite(this.game.world.centerX + 82, this.game.world.centerY + 383, 'enemy');
+        this.enemy.scale.setTo(0.3);
+        this.game.physics.enable(this.enemy);
+        this.enemy.body.immovable = true;
 
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
@@ -34,6 +44,7 @@ MysticQuest.GameState = {
 
         //collisions
         this.game.physics.arcade.collide(this.player, this.blockingLayer);
+        this.game.physics.arcade.collide(this.player, this.enemy);
     },
 
     renderLevel: function() {

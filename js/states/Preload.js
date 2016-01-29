@@ -11,6 +11,7 @@ MysticQuest.PreloadState = {
         this.load.tilemap('testLevel', 'assets/levels/tiledTest.json', null, Phaser.Tilemap.TILED_JSON);
         this.load.image('levelTiles', 'assets/images/tiles.png');
         this.load.image('player', 'assets/images/player.png');
+        this.load.image('enemy', 'assets/images/enemy.png');
     },
     create: function() {
         this.state.start('Game');
