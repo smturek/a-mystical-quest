@@ -44,7 +44,7 @@ MysticQuest.GameState = {
 
         //collisions
         this.game.physics.arcade.collide(this.player, this.blockingLayer);
-        this.game.physics.arcade.collide(this.player, this.enemy);
+        this.game.physics.arcade.collide(this.player, this.enemy, this.startBattle, null, this);
     },
 
     renderLevel: function() {
@@ -61,5 +61,9 @@ MysticQuest.GameState = {
         this.backgroundLayer.resizeWorld();
 
         this.game.camera.follow(this.player);
+    },
+
+    startBattle: function() {
+        this.state.start('Battle');
     }
 };

@@ -12,8 +12,9 @@ MysticQuest.PreloadState = {
         this.load.image('levelTiles', 'assets/images/tiles.png');
         this.load.image('player', 'assets/images/player.png');
         this.load.image('enemy', 'assets/images/enemy.png');
+        this.load.image('rectangle', 'assets/images/rectangle.png');
     },
     create: function() {
-        this.state.start('Game');
+        this.state.start('Battle');
     }
 };
