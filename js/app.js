@@ -1,8 +1,6 @@
 var MysticQuest = MysticQuest || {};
 
-MysticQuest.dim = MysticQuest.getGameLandscapeDimensions(440, 400);
-
-MysticQuest.game = new Phaser.Game(MysticQuest.dim.w, MysticQuest.dim.h, Phaser.AUTO);
+MysticQuest.game = new Phaser.Game(256, 224, Phaser.AUTO);
 
 MysticQuest.game.state.add('Boot', MysticQuest.BootState);
 MysticQuest.game.state.add('Preload', MysticQuest.PreloadState);

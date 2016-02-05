@@ -25,6 +25,11 @@ MysticQuest.getGameLandscapeDimensions = function (max_w, max_h) {
         landH *= ratioH;
     }
 
+    console.log("W: " + w);
+    console.log("H: " + h);
+    console.log("Game W: " + landW);
+    console.log("Game H: " + landH);
+
     return {
         w: landW,
         h: landH

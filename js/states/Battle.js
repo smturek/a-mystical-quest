@@ -2,23 +2,25 @@ var MysticQuest = MysticQuest || {};
 
 MysticQuest.BattleState = {
     create: function() {
-        this.playerRect = this.game.add.sprite(55, 190, 'rectangle');
-        this.playerRect.scale.setTo(0.5, 0.3);
+        this.playerRect = this.game.add.sprite(48, 192, 'heroBox');
+        this.allyRect = this.game.add.sprite(128, 192, 'heroBox');
 
-        this.allyRect = this.game.add.sprite(220, 190, 'rectangle');
-        this.allyRect.scale.setTo(0.5, 0.3);
+        this.monster1 = this.game.add.sprite(16, 48, 'monster');
+        this.monster2 = this.game.add.sprite(96, 48, 'monster');
+        this.monster3 = this.game.add.sprite(176, 48, 'monster');
 
-        this.bottomLeftRect = this.game.add.sprite(60, 167, 'rectangle');
-        this.bottomLeftRect.scale.setTo(0.47, 0.15);
+        this.monsterBox1 = this.game.add.sprite(16, 1, 'monsterBox');
+        this.monsterBox2 = this.game.add.sprite(96, 1, 'monsterBox');
+        this.monsterBox3 = this.game.add.sprite(176, 1, 'monsterBox');
 
-        this.bottomRightRect = this.game.add.sprite(225, 167, 'rectangle');
-        this.bottomRightRect.scale.setTo(0.47, 0.15);
+        this.hero1 = this.game.add.sprite(80, 128, 'hero');
+        this.hero2 = this.game.add.sprite(160, 128, 'hero');
 
-        this.topLeftRect = this.game.add.sprite(60, 144, 'rectangle');
-        this.topLeftRect.scale.setTo(0.47, 0.15);
+        this.actionTopLeft = this.game.add.sprite(53, 160, 'actionBox');
+        this.actionBottomLeft = this.game.add.sprite(53, 176, 'actionBox');
+        this.actionTopRight = this.game.add.sprite(133, 160, 'actionBox');
+        this.actionBottomRight = this.game.add.sprite(133, 176, 'actionBox');
 
-        this.topRightRect = this.game.add.sprite(225, 144, 'rectangle');
-        this.topRightRect.scale.setTo(0.47, 0.15);
 
     }
 };
